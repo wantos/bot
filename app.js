@@ -1,8 +1,11 @@
 var express = require('express');
-var http = require('http');
+const app = express()
 
-//create a http server
-http.createServer( (req, res)=> {
-    res.write('Hello My App!!'); //respond to client
-    res.end(); //ends the response
-}). listen(8080);
+const PORT = 7500
+
+app.get('/', (req, res) =>{
+    res.send({message: 'hello app from server'})
+})
+ 
+app.listen(PORT, () =>{ 
+    console.log(`server running at port ${PORT}`)})
